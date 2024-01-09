@@ -3,6 +3,7 @@ import Button from "@/components/ui/Button";
 import Input from "@/components/ui/Input";
 import Avatar from "@/components/avatar";
 import ContainerFullScreen from "@/components/container-full-screen";
+import Textarea from "@/components/ui/Textarea";
 
 
 
@@ -15,8 +16,9 @@ export default function HomePage() {
         <Button>Discover me ↓</Button>
       </ContainerFullScreen>
 
-      <ContainerFullScreen>
+      <ContainerFullScreen className="grid gap-y-5 place-content-center place-items-center">
         <Input type="email" placeholder="youremail@here.fr" />
+        <Textarea placeholder="Your message here" />
       </ContainerFullScreen>
 
     </main>
