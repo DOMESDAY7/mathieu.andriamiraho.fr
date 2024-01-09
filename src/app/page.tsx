@@ -6,6 +6,7 @@ import ContainerFullScreen from "@/components/container-full-screen";
 import Textarea from "@/components/ui/Textarea";
 
 import { DownloadCloud } from 'lucide-react';
+import WritingPhrase from "@/components/writing-phrase";
 
 
 export default function HomePage() {
@@ -18,9 +19,9 @@ export default function HomePage() {
         <Button>Discover me ↓</Button>
       </ContainerFullScreen>
       <ContainerFullScreen className="bg-black snap-center">
-        <p className="text-white">
-          I am a <span className="text-center text-white">Fullstack developer</span>
-        </p>
+        <div className="text-white flex gap-2">
+          I am a<WritingPhrase words={["test", "bonjour"]} delay={500} />
+        </div>
       </ContainerFullScreen>
 
       <ContainerFullScreen className="grid gap-y-5 place-content-center place-items-center snap-center">
