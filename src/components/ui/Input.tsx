@@ -1,5 +1,25 @@
-export default function Input({ type, placeholder }: { placeholder: string, type: string }) {
-    return (
-        <input type={type} placeholder={placeholder} className="threeD-input" />
-    )
-}
+import cn from "@/utils/cn"
+import * as React from "react"
+
+
+export interface InputProps
+    extends React.InputHTMLAttributes<HTMLInputElement> { }
+
+const Input = React.forwardRef<HTMLInputElement, InputProps>(
+    ({ className, type, ...props }, ref) => {
+        return (
+            <input
+                type={type}
+                className={cn(
+                    "threeD-input",
+                    className
+                )}
+                ref={ref}
+                {...props}
+            />
+        )
+    }
+)
+Input.displayName = "Input"
+
+export { Input }

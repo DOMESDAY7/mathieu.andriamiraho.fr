@@ -32,5 +32,5 @@ export default function WritingPhrase({ words, delay }: WritingPhraseProps) {
         return () => clearInterval(interval);
     }, [index, words, delay]);
 
-    return <div className="flex">{word}<div className="bg-white w-2 h-5 animate-blink" /></div>
+    return <div className="flex">{word}<div className="bg-white w-2 h-full animate-blink" /></div>
 }
