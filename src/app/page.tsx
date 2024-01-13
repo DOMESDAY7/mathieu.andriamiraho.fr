@@ -100,7 +100,9 @@ export default function HomePage() {
   return (
     <main className="snap-y">
       <ContainerFullScreen className="relative grid gap-y-5 md:gap-0 md:grid-cols-2 place-content-center place-items-center snap-center">
-        <Button className="absolute top-5 right-5 "><DownloadCloud /></Button>
+        <Button className="absolute top-5 right-5 " asChild><Link href="/cv.pdf" target="_blank">
+          <DownloadCloud />
+        </Link></Button>
         <Avatar className="md:justify-self-end md:self-center md:row-span-2 " />
         <h1 className="text-3xl text-center md:text-left md: justify-self-start">👋🏽Hi, my name is <br /><span className=" font-bold">Mathieu Andriamiraho</span></h1>
         <Button className="md:col-start-2 md:justify-self-start" asChild><Link href="#whoIAm">Discover me ↓</Link></Button>

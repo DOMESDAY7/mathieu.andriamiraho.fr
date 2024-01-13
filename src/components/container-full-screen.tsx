@@ -10,5 +10,6 @@ const ContainerFullScreen = React.forwardRef<
         </section>
     );
 });
+ContainerFullScreen.displayName = "ContainerFullScreen"
 
 export default ContainerFullScreen;
