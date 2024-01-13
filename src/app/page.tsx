@@ -1,15 +1,16 @@
-"use client"
+
 import Button from "@/components/ui/Button";
 import Avatar from "@/components/avatar";
 import ContainerFullScreen from "@/components/container-full-screen";
 import { DownloadCloud } from 'lucide-react';
 import WritingPhrase from "@/components/writing-phrase";
 import ContactForm from "@/components/contact-form";
-import type{ Experience } from "@/types/Experience";
+import type { Experience } from "@/types/Experience";
 import ID from "@/utils/ID";
 import MyExperiences from "@/components/experiences/MyExperiences";
-import type{ Education } from "@/types/Education";
+import type { Education } from "@/types/Education";
 import MyEducationalBg from "@/components/educational-bg/MyEducationalBg";
+import Link from "next/link";
 
 
 export default function HomePage() {
@@ -98,16 +99,14 @@ export default function HomePage() {
 
   return (
     <main className="snap-y">
-      <div className="hidden md:flex items-center h-svh w-svw justify-center bg-white fixed top-0 z-50">
-        <h1 className="font-extrabold text-7xl  ">👋🏿Only mobile is available for now</h1>
-      </div>
-      <ContainerFullScreen className="relative grid gap-y-5 place-content-center place-items-center snap-center">
-        <Button className="absolute top-5 right-5"><DownloadCloud /></Button>
-        <Avatar />
-        <h1 className="text-3xl text-center">👋🏽Hi, my name is <br /><span className=" font-bold">Mathieu Andriamiraho</span></h1>
-        <Button>Discover me ↓</Button>
+      <ContainerFullScreen className="relative grid gap-y-5 md:gap-0 md:grid-cols-2 place-content-center place-items-center snap-center">
+        <Button className="absolute top-5 right-5 "><DownloadCloud /></Button>
+        <Avatar className="md:justify-self-end md:self-center md:row-span-2 " />
+        <h1 className="text-3xl text-center md:text-left md: justify-self-start">👋🏽Hi, my name is <br /><span className=" font-bold">Mathieu Andriamiraho</span></h1>
+        <Button className="md:col-start-2 md:justify-self-start" asChild><Link href="#whoIAm">Discover me ↓</Link></Button>
       </ContainerFullScreen>
-      <ContainerFullScreen className="bg-black snap-center flex items-center justify-center">
+
+      <ContainerFullScreen className="bg-black snap-center flex items-center justify-center" id="whoIAm">
         <div className="text-white flex gap-2 text-3xl">
           I am a<WritingPhrase words={whoAmI} delay={100} />
         </div>

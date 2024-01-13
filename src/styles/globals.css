@@ -9,6 +9,10 @@
   --threeD-btn-box-shadow: #020202;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 /* button */
 .threeD-btn {
   color: white;
