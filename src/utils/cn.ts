@@ -1,3 +1,3 @@
-export default function cn(...args: any[]) {
-  return args.filter(Boolean).join(' ')
+export default function cn(...args: (string | undefined)[]): string {
+  return args.filter(Boolean).join(' ');
 }

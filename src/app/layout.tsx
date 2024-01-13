@@ -4,7 +4,8 @@ import { Ubuntu } from "next/font/google";
 
 const ubuntu = Ubuntu({
   weight: ["400", "500", "700"],
-  subsets: ["latin-ext"],
+  subsets: ["latin"],
+  variable: "--font-sans",
 });
 
 export const metadata = {
@@ -20,7 +21,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`font-sans ${ubuntu.className}`}>{children}</body>
+      <body className={`font-sans ${ubuntu.variable}`}>{children}</body>
     </html>
   );
 }
