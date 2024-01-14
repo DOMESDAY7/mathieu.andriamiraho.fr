@@ -2,7 +2,7 @@
 import Button from "@/components/ui/Button";
 import Avatar from "@/components/avatar";
 import ContainerFullScreen from "@/components/container-full-screen";
-import { DownloadCloud } from 'lucide-react';
+import { DownloadCloud, MoveDown } from 'lucide-react';
 import WritingPhrase from "@/components/writing-phrase";
 import ContactForm from "@/components/contact-form";
 import type { Experience } from "@/types/Experience";
@@ -11,61 +11,9 @@ import MyExperiences from "@/components/experiences/MyExperiences";
 import type { Education } from "@/types/Education";
 import MyEducationalBg from "@/components/educational-bg/MyEducationalBg";
 import Link from "next/link";
-
+import experiences from "@/data/experiences.json"
 
 export default function HomePage() {
-
-  const whoAmI = [
-    "Developper 💻",
-    "engineer 🧠",
-    "passionate 🤩",
-    "designer 🖌",
-    "mocha lover ☕",
-    "marvel movie viewer 🎞"
-  ]
-
-
-  const experiences: Experience[] = [
-    {
-      id: ID(),
-      title: "Apprentice IT engineer quality project",
-      description: "Creation of tools to monitor the IT quality of multi-national installations throughout Europe, the middle East and Africa",
-      company: "EssilorLuxottica",
-      date: {
-        from: new Date("2022-09-01"),
-        to: new Date()
-      },
-      location: "Créteil, France",
-      image: "/glasses.png",
-      imageFallback: "🕶️",
-    },
-    {
-      id: ID(),
-      title: "FullStack developper internship",
-      description: "Creation of a digital working environment for the teaching staff and students.",
-      company: "Progress Group",
-      date: {
-        from: new Date("2022-04-01"),
-        to: new Date("2022-06-01")
-      },
-      location: "Créteil, France",
-      image: "/computer.png",
-      imageFallback: "🖥️",
-    },
-    {
-      id: ID(),
-      title: "FullStack developper internship",
-      description: "Design creation and web integration of the latest e commerce site.",
-      company: "La Prairie créative",
-      date: {
-        from: new Date("2022-04-01"),
-        to: new Date("2022-06-01")
-      },
-      location: "Créteil, France",
-      image: "/laptop.png",
-      imageFallback: "💻",
-    }
-  ]
 
   const educations: Education[] = [
     {
@@ -92,25 +40,28 @@ export default function HomePage() {
       location: "Champs sur Marne, Ile de France ",
       description: "DUT multimedia and internet professions",
       degree: "French DUT",
-
     }
-
   ]
 
   return (
     <main className="snap-y">
       <ContainerFullScreen className="relative grid gap-y-5 md:gap-0 md:grid-cols-2 place-content-center place-items-center snap-center">
-        <Button className="absolute top-5 right-5 " asChild><Link href="/cv.pdf" target="_blank">
-          <DownloadCloud />
-        </Link></Button>
-        <Avatar className="md:justify-self-end md:self-center md:row-span-2 " />
-        <h1 className="text-3xl text-center md:text-left md: justify-self-start">👋🏽Hi, my name is <br /><span className=" font-bold">Mathieu Andriamiraho</span></h1>
-        <Button className="md:col-start-2 md:justify-self-start" asChild><Link href="#whoIAm">Discover me ↓</Link></Button>
-      </ContainerFullScreen>
+        <Avatar className="md:justify-self-end md:self-center md:row-span-2" />
+        <h1 className="text-3xl text-center md:text-left  justify-self-start">👋🏽Hi, my name is <br /><span className="font-bold">Mathieu Andriamiraho</span></h1>
+        <div className="flex md:gap-5 md:col-start-2 md:row-start-2 items-center justify-center md:justify-self-start">
+          <Button className="md:justify-self-start" asChild>
+            <Link href="#whoIAm" className="flex">
+              <MoveDown /> Discover me
+            </Link>
+          </Button>
 
-      <ContainerFullScreen className="bg-black snap-center flex items-center justify-center" id="whoIAm">
-        <div className="text-white flex gap-2 text-3xl">
-          I am a<WritingPhrase words={whoAmI} delay={100} />
+          <Button className="absolute md:relative top-5 md:top-0 right-5 md:right-0 flex gap-x-2" asChild>
+            <Link href="/cv.pdf" target="_blank">
+              <DownloadCloud />
+              <p className="hidden md:block">Download my resume</p>
+            </Link>
+          </Button>
+
         </div>
       </ContainerFullScreen>
 
@@ -123,7 +74,7 @@ export default function HomePage() {
       </div>
 
 
-      <ContainerFullScreen className="grid gap-y-5 place-content-center place-items-center snap-center">
+      <ContainerFullScreen>
         <ContactForm />
       </ContainerFullScreen>
 

@@ -1,5 +1,5 @@
 import "@/styles/globals.css";
-
+import { Toaster } from "@/components/ui/toast/toaster"
 import { Ubuntu } from "next/font/google";
 
 const ubuntu = Ubuntu({
@@ -21,7 +21,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`font-sans ${ubuntu.variable}`}>{children}</body>
+      <body className={`font-sans ${ubuntu.variable}`}>
+        <main>{children}</main>
+        <Toaster />
+      </body>
     </html>
   );
 }
