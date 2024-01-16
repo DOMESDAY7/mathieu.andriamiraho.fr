@@ -1,6 +1,6 @@
-import { format } from 'date-fns';
+import { format, parseISO } from 'date-fns';
 
-export default function Date({ children }: { children: Date }) {
-    const formattedDate = format(children, 'MMM yyyy')
+export default function Date({ children }: { children: string }) {
+    const formattedDate = format(parseISO(children), 'MMM yyyy')
     return formattedDate
 }

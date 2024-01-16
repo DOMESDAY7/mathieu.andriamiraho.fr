@@ -1,0 +1,50 @@
+[
+    {
+        "id": "ID()",
+        "title": "Apprentice IT engineer quality project",
+        "description": "Creation of tools to monitor the IT quality of multi-national installations throughout Europe, the Middle East, and Africa",
+        "company": "EssilorLuxottica",
+        "date": {
+            "from": "2022-09-01",
+            "to": "2024-01-14T00:00:00.000Z"
+        },
+        "location": "Créteil, France",
+        "mobileImage": "/glasses.png",
+        "images": [
+            "/glasses.png"
+        ],
+        "imageFallback": "/EssilorLuxotticaLogo.svg"
+    },
+    {
+        "id": "ID()",
+        "title": "FullStack developer internship",
+        "description": "Creation of a digital working environment for the teaching staff and students.",
+        "company": "Progress Group",
+        "date": {
+            "from": "2022-04-01",
+            "to": "2022-06-01"
+        },
+        "location": "Créteil, France",
+        "images": [
+            "/computer.png"
+        ],
+        "mobileImage": "/computer.png",
+        "imageFallback": "🖥️"
+    },
+    {
+        "id": "ID()",
+        "title": "FullStack developer internship",
+        "description": "Design creation and web integration of the latest e-commerce site.",
+        "company": "La Prairie créative",
+        "date": {
+            "from": "2022-04-01",
+            "to": "2022-06-01"
+        },
+        "location": "Créteil, France",
+        "images": [
+            "/laptop.png"
+        ],
+        "mobileImage": "/laptop.png",
+        "imageFallback": "💻"
+    }
+]
