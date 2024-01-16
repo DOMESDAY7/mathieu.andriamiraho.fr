@@ -1,4 +1,4 @@
 export type TimeBetween = {
-    from: Date;
-    to: Date;
+    from: string;
+    to: string;
 };

@@ -1,4 +1,4 @@
-import type{ TimeBetween } from "./timeBetween";
+import type { TimeBetween } from "./timeBetween";
 
 export type Experience = {
     id: string;
@@ -7,6 +7,7 @@ export type Experience = {
     location: string;
     date: TimeBetween;
     description: string;
-    image: string | null;
+    images: string[] | null;
     imageFallback: string;
+    mobileImage: string;
 };
