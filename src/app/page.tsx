@@ -12,7 +12,7 @@ import educations from "@/data/education.json"
 export default function HomePage() {
 
   return (
-    <main className="snap-y">
+    <main className="flex flex-col">
       <ContainerFullScreen className="relative grid gap-y-5 md:gap-0 md:grid-cols-2 place-content-center place-items-center snap-center">
         <Avatar className="md:justify-self-end md:self-center md:row-span-2" />
         <h1 className="text-3xl text-center md:text-left  justify-self-start">👋🏽Hi, my name is <br /><span className="font-bold">Mathieu Andriamiraho</span></h1>
@@ -38,13 +38,13 @@ export default function HomePage() {
       </div>
 
       <div>
-        <MyEducationalBg educations={educations} />
+        {/* <MyEducationalBg educations={educations} /> */}
       </div>
 
 
-      <ContainerFullScreen>
+      {/* <ContainerFullScreen> */}
         <ContactForm />
-      </ContainerFullScreen>
+      {/* </ContainerFullScreen> */}
 
     </main>
   );

@@ -9,7 +9,8 @@ type PropsImage = {
     src: string | null
     className?: string
     width?: number
-    height?: number
+    height?: number,
+    fill?: boolean
 }
 
 const IMG = ({
@@ -18,7 +19,8 @@ const IMG = ({
     src,
     className,
     width,
-    height
+    height,
+    fill
 }: PropsImage) => {
     const [error, setError] = useState<boolean | null>(false)
 
@@ -36,6 +38,7 @@ const IMG = ({
             className={cn(className)}
             width={width}
             height={height}
+            fill={fill}
         />
     )
 }
