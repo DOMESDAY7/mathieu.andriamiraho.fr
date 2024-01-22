@@ -3,24 +3,34 @@
         "id": "ID1",
         "school": "ESIEE - Engineer school",
         "fieldOfStudy": "IT engineering",
-        "dates": {
+        "date": {
             "from": "2022-09-01",
             "to": "2024-01-16"
         },
         "location": "Champs sur Marne, Ile de France",
         "description": "IT and applications engineer 3D Engineering and Media Technology",
-        "degree": "Master's degree"
+        "degree": "Master's degree",
+        "images": [
+            "/computer.png",
+            "/computer.png",
+            "/computer.png"
+        ]
     },
     {
         "id": "ID2",
         "school": "University and Technological Institute",
         "fieldOfStudy": "Multimedia and Internet Professions",
-        "dates": {
+        "date": {
             "from": "2022-09-01",
             "to": "2024-01-16"
         },
         "location": "Champs sur Marne, Ile de France",
         "description": "DUT multimedia and internet professions",
-        "degree": "French DUT"
+        "degree": "French DUT",
+        "images": [
+            "/computer.png",
+            "/computer.png",
+            "/computer.png"
+        ]
     }
 ]

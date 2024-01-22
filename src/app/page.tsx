@@ -38,7 +38,7 @@ export default function HomePage() {
       </div>
 
       <div>
-        {/* <MyEducationalBg educations={educations} /> */}
+        <MyEducationalBg educations={educations} />
       </div>
 
 
