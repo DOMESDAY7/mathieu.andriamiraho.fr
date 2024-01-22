@@ -11,6 +11,8 @@
         "location": "Créteil, France",
         "mobileImage": "/glasses.png",
         "images": [
+            "/glasses.png",
+            "/glasses.png",
             "/glasses.png"
         ],
         "imageFallback": "/EssilorLuxotticaLogo.svg"
@@ -26,6 +28,8 @@
         },
         "location": "Créteil, France",
         "images": [
+            "/computer.png",
+            "/computer.png",
             "/computer.png"
         ],
         "mobileImage": "/computer.png",
@@ -42,6 +46,8 @@
         },
         "location": "Créteil, France",
         "images": [
+            "/laptop.png",
+            "/laptop.png",
             "/laptop.png"
         ],
         "mobileImage": "/laptop.png",

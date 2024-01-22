@@ -1,11 +1,12 @@
-import type{ TimeBetween } from './timeBetween.d';
+import type { TimeBetween } from './timeBetween.d';
 
 export type Education = {
     id: string;
     school: string;
     degree: string;
     fieldOfStudy: string;
-    dates: TimeBetween;
+    date: TimeBetween;
     description: string;
     location: string;
+    images: string[];
 }
