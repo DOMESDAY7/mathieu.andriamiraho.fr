@@ -47,7 +47,7 @@ const Experience = ({ title, company, location, date, description, images, image
     )
 }
 
-export default function MyExperiences({ experiences }: { experiences: Experience[] }) {
+export default function MyExperiences({ experiences }: { experiences: ExperienceType[] }) {
 
     return (
         <div >
