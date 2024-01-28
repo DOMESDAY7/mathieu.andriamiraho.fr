@@ -2,14 +2,18 @@ import Button from "@/components/ui/Button";
 import Avatar from "@/components/avatar";
 import ContainerFullScreen from "@/components/container-full-screen";
 import { DownloadCloud, MoveDown } from 'lucide-react';
-import ContactForm from "@/components/contact-form";
 import MyExperiences from "@/components/experiences/MyExperiences";
 import MyEducationalBg from "@/components/educational-bg/MyEducationalBg";
 import Link from "next/link";
-import experiences from "@/data/experiences.json"
-import educations from "@/data/education.json"
+import { getEducationalBg, getExperiences } from "@/ETL/etl";
+import Footer from "@/components/footer";
 
-export default function HomePage() {
+
+export default async function HomePage() {
+
+  const experiences = await getExperiences()
+  const educations = await getEducationalBg()
+
 
   return (
     <main className="flex flex-col">
@@ -31,20 +35,20 @@ export default function HomePage() {
           </Button>
 
         </div>
-      </ContainerFullScreen>  
+      </ContainerFullScreen>
 
       <div>
-        <MyExperiences experiences={experiences} />
+        <MyExperiences experiences={experiences ?? []} />
       </div>
 
       <div>
-        <MyEducationalBg educations={educations} />
+        <MyEducationalBg educations={educations ?? []} />
       </div>
 
 
-      {/* <ContainerFullScreen> */}
-        <ContactForm />
-      {/* </ContainerFullScreen> */}
+      <ContainerFullScreen>
+        <Footer />
+      </ContainerFullScreen>
 
     </main>
   );

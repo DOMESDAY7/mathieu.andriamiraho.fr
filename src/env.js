@@ -31,6 +31,10 @@ export const env = createEnv({
     DISCORD_CLIENT_ID: z.string(),
     DISCORD_CLIENT_SECRET: z.string(),
     DISCORD_WEBHOOK_URL: z.string().url(),
+    NOTION_TOKEN: z.string(),
+    EXPERIENCE_TOKEN: z.string(),
+    EDUCATIONAL_BG_TOKEN: z.string(),
+    WHO_AM_I_TOKEN: z.string(),
   },
 
   /**
@@ -54,6 +58,10 @@ export const env = createEnv({
     DISCORD_CLIENT_ID: process.env.DISCORD_CLIENT_ID,
     DISCORD_CLIENT_SECRET: process.env.DISCORD_CLIENT_SECRET,
     DISCORD_WEBHOOK_URL: process.env.DISCORD_WEBHOOK_URL,
+    NOTION_TOKEN: process.env.NOTION_TOKEN,
+    EXPERIENCE_TOKEN: process.env.EXPERIENCE_TOKEN,
+    EDUCATIONAL_BG_TOKEN: process.env.EDUCATIONAL_BG_TOKEN,
+    WHO_AM_I_TOKEN: process.env.WHO_AM_I_TOKEN,
   },
   /**
    * Run `build` or `dev` with `SKIP_ENV_VALIDATION` to skip env validation. This is especially

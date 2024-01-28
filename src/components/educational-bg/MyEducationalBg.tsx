@@ -55,7 +55,7 @@ export default function MyEducationalBg({ educations }: { educations: EducationT
                 My educational<br /> background
             </h3>
 
-            {educations.map((education) => (
+            {educations?.map((education) => (
                 <EducationComponent
                     key={ID()}
                     {...education}
