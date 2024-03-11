@@ -1,11 +1,10 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import * as CheckboxPrimitive from "@radix-ui/react-checkbox"
-
-
-import cn from "@/utils/cn"
-import { Check } from "lucide-react"
+import * as React from "react";
+import * as CheckboxPrimitive from "@radix-ui/react-checkbox";
+import Check from "@/emoji/check-mark.svg";
+import Image from "next/image";
+import cn from "@/utils/cn";
 
 const Checkbox = React.forwardRef<
   React.ElementRef<typeof CheckboxPrimitive.Root>,
@@ -14,19 +13,18 @@ const Checkbox = React.forwardRef<
   <CheckboxPrimitive.Root
     ref={ref}
     className={cn(
-      "peer data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground threeD-checkbox",
-      className
+      "data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground threeD-checkbox peer",
+      className,
     )}
     {...props}
   >
     <CheckboxPrimitive.Indicator
       className={cn("flex items-center justify-center text-current")}
     >
-      
-      <Check className="h-4 w-4"/>
+      <Image src={Check} alt="check" width={20} height={20} />
     </CheckboxPrimitive.Indicator>
   </CheckboxPrimitive.Root>
-))
-Checkbox.displayName = CheckboxPrimitive.Root.displayName
+));
+Checkbox.displayName = CheckboxPrimitive.Root.displayName;
 
-export { Checkbox }
+export { Checkbox };

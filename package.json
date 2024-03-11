@@ -7,7 +7,10 @@
     "build": "next build",
     "dev": "next dev",
     "lint": "next lint",
-    "start": "next start"
+    "start": "next start",
+    "format:fix": "prettier --write --ignore-path .gitignore .",
+    "format": "prettier --check --ignore-path .gitignore .",
+    "prepare": "husky"
   },
   "dependencies": {
     "@notionhq/client": "^2.2.14",
@@ -18,9 +21,8 @@
     "class-variance-authority": "^0.7.0",
     "classnames": "^2.5.1",
     "date-fns": "^3.2.0",
-    "lucide-react": "^0.308.0",
+    "husky": "^9.0.11",
     "next": "latest",
-    "next-auth": "^4.24.5",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "zod": "^3.22.4"

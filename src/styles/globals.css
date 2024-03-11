@@ -8,6 +8,7 @@
   --threeD-btn-background-color: #2f2f2f;
   ---main-color: var(--threeD-btn-background-color);
   --threeD-btn-box-shadow: #020202;
+  --background: "white";
 }
 
 html {
@@ -19,7 +20,7 @@ html {
   color: white;
   background-color: var(--threeD-btn-background-color);
   border: none;
-  padding: 1rem;
+  padding: 0.5rem 1rem;
   font-size: 1rem;
   border-radius: 1rem;
   transition: all 0.07s ease-in-out;

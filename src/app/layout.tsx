@@ -1,5 +1,5 @@
 import "@/styles/globals.css";
-import { Toaster } from "@/components/ui/toast/toaster"
+import { Toaster } from "@/components/ui/toast/toaster";
 import { Ubuntu } from "next/font/google";
 
 const ubuntu = Ubuntu({
