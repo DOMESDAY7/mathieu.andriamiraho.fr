@@ -11,7 +11,9 @@ import Footer from "@/components/footer";
 
 export default async function HomePage() {
 
-  const [experiences, educations] = await Promise.all([getExperiences(), getEducationalBg()]);
+  const experiences = await getExperiences();
+  const educations = await getEducationalBg();
+
   
   return (
     <main className="flex flex-col">

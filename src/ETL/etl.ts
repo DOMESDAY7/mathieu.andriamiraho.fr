@@ -1,19 +1,21 @@
 "use server"
 import { Client } from "@notionhq/client";
+import { env } from "@/env";
 
 import type { Experience } from "@/types/Experience";
 import type { TimeBetween } from "@/types/timeBetween";
 import type { TWhoAmI } from "@/types/whoAmI";
 import type { Education } from "@/types/Education";
 
+
 const notion = new Client({
-    auth: process.env.NOTION_TOKEN
+    auth: env.NOTION_TOKEN
 });
 
 const getExperiences = async (): Promise<Experience[] | void> => {
     try {
 
-        const tokenExperiences = process.env.EXPERIENCE_TOKEN ?? null;
+        const tokenExperiences = env.EXPERIENCE_TOKEN;
 
         if (!tokenExperiences) throw new Error("no experience token was provided");
 
@@ -52,7 +54,7 @@ const getExperiences = async (): Promise<Experience[] | void> => {
 
 const getWhoAmI = async (): Promise<TWhoAmI[] | void> => {
     try {
-        const tokenWhoAmI = process.env.WHO_AM_I_TOKEN ?? null;
+        const tokenWhoAmI = env.WHO_AM_I_TOKEN;
 
         if (!tokenWhoAmI) throw new Error("WHO_AM_I_TOKEN was not provided");
 
@@ -82,7 +84,7 @@ const getWhoAmI = async (): Promise<TWhoAmI[] | void> => {
 const getEducationalBg = async (): Promise<Education[] | void> => {
     try {
 
-        const tokenEducationalBg = process.env.EDUCATIONAL_BG_TOKEN ?? null;
+        const tokenEducationalBg = env.EDUCATIONAL_BG_TOKEN;
 
         if (!tokenEducationalBg) throw new Error("EDUCATIONAL_BG_TOKEN was not provided");
 
