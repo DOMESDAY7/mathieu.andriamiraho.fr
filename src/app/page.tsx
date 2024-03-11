@@ -9,6 +9,8 @@ import { getEducationalBg, getExperiences } from "@/ETL/etl";
 import Footer from "@/components/footer";
 
 
+export const dynamic = 'force-dynamic'
+
 export default async function HomePage() {
 
   const experiences = await getExperiences();
