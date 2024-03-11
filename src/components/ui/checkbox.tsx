@@ -7,23 +7,23 @@ import Image from "next/image";
 import cn from "@/utils/cn";
 
 const Checkbox = React.forwardRef<
-  React.ElementRef<typeof CheckboxPrimitive.Root>,
-  React.ComponentPropsWithoutRef<typeof CheckboxPrimitive.Root>
+    React.ElementRef<typeof CheckboxPrimitive.Root>,
+    React.ComponentPropsWithoutRef<typeof CheckboxPrimitive.Root>
 >(({ className, ...props }, ref) => (
-  <CheckboxPrimitive.Root
-    ref={ref}
-    className={cn(
-      "data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground threeD-checkbox peer",
-      className,
-    )}
-    {...props}
-  >
-    <CheckboxPrimitive.Indicator
-      className={cn("flex items-center justify-center text-current")}
+    <CheckboxPrimitive.Root
+        ref={ref}
+        className={cn(
+            "data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground threeD-checkbox peer",
+            className,
+        )}
+        {...props}
     >
-      <Image src={Check} alt="check" width={20} height={20} />
-    </CheckboxPrimitive.Indicator>
-  </CheckboxPrimitive.Root>
+        <CheckboxPrimitive.Indicator
+            className={cn("flex items-center justify-center text-current")}
+        >
+            <Image src={Check} alt="check" width={20} height={20} />
+        </CheckboxPrimitive.Indicator>
+    </CheckboxPrimitive.Root>
 ));
 Checkbox.displayName = CheckboxPrimitive.Root.displayName;
 

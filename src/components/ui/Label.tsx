@@ -1,14 +1,14 @@
 export default function Label({
-  children,
-  htmlFor,
+    children,
+    htmlFor,
 }: {
-  htmlFor: string;
-  children: React.ReactNode;
+    htmlFor: string;
+    children: React.ReactNode;
 }) {
-  return (
-    <label htmlFor={htmlFor} className="text-lg font-bold">
-      {" "}
-      {children}
-    </label>
-  );
+    return (
+        <label htmlFor={htmlFor} className="text-lg font-bold">
+            {" "}
+            {children}
+        </label>
+    );
 }
