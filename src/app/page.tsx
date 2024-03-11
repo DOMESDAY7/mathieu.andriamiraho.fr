@@ -11,10 +11,8 @@ import Footer from "@/components/footer";
 
 export default async function HomePage() {
 
-  const experiences = await getExperiences()
-  const educations = await getEducationalBg()
-
-
+  const [experiences, educations] = await Promise.all([getExperiences(), getEducationalBg()]);
+  
   return (
     <main className="flex flex-col">
       <ContainerFullScreen className="relative grid gap-y-5 md:gap-0 md:grid-cols-2 place-content-center place-items-center snap-center">

@@ -34,7 +34,6 @@ const getExperiences = async (): Promise<Experience[] | void> => {
                 company: pageProperties.company.rich_text[0].plain_text,
                 mobileImage: pageProperties.mobileImage.files[0].file.url,
                 images: pageProperties.images.files.map((image: any) => image.file.url as string),
-                imageFallback: pageProperties.imageFalback.files[0]?.file?.url ?? "",
                 date: {
                     from: pageProperties.dates.date.start,
                     to: pageProperties.dates.date.end

@@ -7,7 +7,6 @@ export type Experience = {
     location: string;
     date: TimeBetween;
     description: string;
-    images: string[] | null;
-    imageFallback: string;
+    images: string[];
     mobileImage: string;
 };

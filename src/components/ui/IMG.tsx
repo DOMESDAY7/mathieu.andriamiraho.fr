@@ -14,7 +14,6 @@ type PropsImage = {
 }
 
 const IMG = ({
-    fallback = "/fallback.svg",
     alt,
     src,
     className,
@@ -23,7 +22,7 @@ const IMG = ({
     fill
 }: PropsImage) => {
     const [error, setError] = useState<boolean | null>(false)
-
+    const fallback = "/fallback.svg"
     useEffect(() => {
         setError(null)
     }, [src])
