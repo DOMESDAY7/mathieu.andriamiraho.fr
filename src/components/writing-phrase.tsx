@@ -31,7 +31,7 @@ export default function WritingPhrase({ words, delay }: WritingPhraseProps) {
                 setWord(
                     (word) =>
                         word +
-                        `<Image src="${emojiImg}" alt="emoji" width={20} height={20}/>`,
+                        `&nbsp;<Image src="${emojiImg}" alt="emoji" width={20} height={20}/>`,
                 );
                 i = emojiEnd + 1; // Skip to the end of the emoji
             }
@@ -62,7 +62,7 @@ export default function WritingPhrase({ words, delay }: WritingPhraseProps) {
                         setWord(
                             (word) =>
                                 word +
-                                `<Image src="${emojiImg}" alt="emoji" width={20} height={20}/>`,
+                                `&nbsp;<Image src="${emojiImg}" alt="emoji" width={20} height={20}/>`,
                         );
                         i = emojiEnd + 1; // Skip to the end of the emoji
                     }
@@ -86,7 +86,10 @@ export default function WritingPhrase({ words, delay }: WritingPhraseProps) {
 
     return (
         <div className="flex">
-            <div dangerouslySetInnerHTML={{ __html: word }} />
+            <div
+                dangerouslySetInnerHTML={{ __html: word }}
+                className="flex flex-wrap"
+            />
             <div className="animate-blink h-full w-2 bg-white" />
         </div>
     );
