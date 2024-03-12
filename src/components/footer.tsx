@@ -18,7 +18,7 @@ export default async function Footer() {
                                 (el: TWhoAmI) => `${el.name} ${el.emoji}`,
                             ) ?? []
                         }
-                        delay={100}
+                        delay={150}
                     />
                 </div>
             </div>

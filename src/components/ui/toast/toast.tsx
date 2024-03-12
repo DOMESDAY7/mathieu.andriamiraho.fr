@@ -2,7 +2,6 @@ import * as React from "react";
 import * as ToastPrimitives from "@radix-ui/react-toast";
 import { cva, type VariantProps } from "class-variance-authority";
 import cn from "@/utils/cn";
-import Cross from "@/emoji/cross-mark.svg";
 import Image from "next/image";
 import Button from "@/components/ui/Button";
 
@@ -83,7 +82,12 @@ const ToastClose = React.forwardRef<
         {...props}
     >
         <Button>
-            <Image src={Cross} alt="close" width={10} height={10} />
+            <Image
+                src={"/emoji/cross-mark.svg"}
+                alt="close"
+                width={10}
+                height={10}
+            />
         </Button>
     </ToastPrimitives.Close>
 ));

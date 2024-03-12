@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import * as CheckboxPrimitive from "@radix-ui/react-checkbox";
-import Check from "@/emoji/check-mark.svg";
+// import Check from "@/emoji/check-mark.svg";
 import Image from "next/image";
 import cn from "@/utils/cn";
 
@@ -21,7 +21,12 @@ const Checkbox = React.forwardRef<
         <CheckboxPrimitive.Indicator
             className={cn("flex items-center justify-center text-current")}
         >
-            <Image src={Check} alt="check" width={20} height={20} />
+            <Image
+                src={"/emoji/check-mark.svg"}
+                alt="check"
+                width={20}
+                height={20}
+            />
         </CheckboxPrimitive.Indicator>
     </CheckboxPrimitive.Root>
 ));

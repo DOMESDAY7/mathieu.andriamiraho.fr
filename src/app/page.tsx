@@ -6,7 +6,6 @@ import MyEducationalBg from "@/components/educational-bg/MyEducationalBg";
 import Link from "next/link";
 import { getEducationalBg, getExperiences } from "@/ETL/etl";
 import Footer from "@/components/footer";
-import WavingHand from "@/emoji/waving-hand-medium-dark.svg";
 import Image from "next/image";
 
 export const dynamic = "force-dynamic";
@@ -21,7 +20,7 @@ export default async function HomePage() {
                 <Avatar className="md:row-span-2 md:self-center md:justify-self-end" />
                 <div className="justify-self-start text-center text-3xl md:text-left">
                     <Image
-                        src={WavingHand}
+                        src={"/emoji/waving-hand.svg"}
                         alt="waving hand"
                         width={20}
                         height={20}

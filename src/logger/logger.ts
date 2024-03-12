@@ -1,4 +1,4 @@
-import getClientlog from "@/server/getClientlog";
+import sendClientLogError from "@/server/getClientlog";
 
 type logType = "info" | "error" | "warning";
 
@@ -10,8 +10,8 @@ type logType = "info" | "error" | "warning";
  */
 export default async function log(type: logType, message: string) {
     // detect if the log wal call on client
-    if (typeof window !== "undefined") {
-        await getClientlog({ type, message });
+    if (typeof window !== "undefined" && type === "error") {
+        await sendClientLogError({ type, message });
         console.log("log sent to server");
 
         return;

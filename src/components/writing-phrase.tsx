@@ -1,6 +1,6 @@
 "use client";
-import emojiToSvg from "@/server/emojiToSvg";
 import { useEffect, useState } from "react";
+import emojiToSvg from "@/utils/emojiToSvg";
 
 type WritingPhraseProps = {
     words: string[];
@@ -15,30 +15,63 @@ export default function WritingPhrase({ words, delay }: WritingPhraseProps) {
         const currentWord = words[index] ?? "";
         let i = 0;
         setWord("");
+        let emojiEnd = -1;
+
+        // Pre-render the first emoji if present
+        if (currentWord.startsWith(":")) {
+            for (let j = 1; j < currentWord.length; j++) {
+                if (currentWord[j] === ":") {
+                    emojiEnd = j;
+                    break;
+                }
+            }
+            if (emojiEnd !== -1) {
+                const emoji = currentWord.slice(0, emojiEnd + 1);
+                const emojiImg = emojiToSvg(emoji);
+                setWord(
+                    (word) =>
+                        word +
+                        `<Image src="${emojiImg}" alt="emoji" width={20} height={20}/>`,
+                );
+                i = emojiEnd + 1; // Skip to the end of the emoji
+            }
+        }
 
         const interval = setInterval(() => {
             if (i < currentWord.length) {
                 const nextLetter = currentWord[i];
-                // if (nex letter equal to a word in ":" then add a space and use the svg
-                // if (nextLetter === ":") {
-                //     // find the next ":"
-                //     for (let j = i + 1; j < currentWord.length; j++) {
-                //         if (currentWord[j] === ":") {
-                //             const emoji = currentWord.slice(i - 1, j + 3);
-                //             const res = async()await emojiToSvg(emoji)
-                //                 console.log(res)
-                //                 // add the emoji
-                //                 console.log("test")
-                //                 setWord((word) => word + emojiToSvg(emoji));
-                //                 i = j;
 
-                //             break;
-                //         }
-                //     }
-                // }
+                if (nextLetter === ":") {
+                    // Find the next ":" and ensure it's part of an emoji
+                    for (let j = i + 1; j < currentWord.length; j++) {
+                        if (
+                            currentWord[j] === " " ||
+                            currentWord[j] === "\n" ||
+                            currentWord[j] === "\t"
+                        ) {
+                            break;
+                        }
+                        if (currentWord[j] === ":") {
+                            emojiEnd = j;
+                            break;
+                        }
+                    }
+                    if (emojiEnd !== -1) {
+                        const emoji = currentWord.slice(i, emojiEnd + 1);
+                        const emojiImg = emojiToSvg(emoji);
+                        setWord(
+                            (word) =>
+                                word +
+                                `<Image src="${emojiImg}" alt="emoji" width={20} height={20}/>`,
+                        );
+                        i = emojiEnd + 1; // Skip to the end of the emoji
+                    }
+                }
 
-                setWord((word) => word + nextLetter);
-                i++;
+                if (emojiEnd === -1) {
+                    setWord((word) => word + nextLetter);
+                    i++;
+                }
             } else {
                 clearInterval(interval);
 
@@ -53,7 +86,7 @@ export default function WritingPhrase({ words, delay }: WritingPhraseProps) {
 
     return (
         <div className="flex">
-            {word}
+            <div dangerouslySetInnerHTML={{ __html: word }} />
             <div className="animate-blink h-full w-2 bg-white" />
         </div>
     );
