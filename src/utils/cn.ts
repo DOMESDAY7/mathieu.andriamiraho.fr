@@ -1,3 +1,6 @@
-export default function cn(...args: (string | undefined)[]): string {
-    return args.filter(Boolean).join(" ");
+import { ClassValue, clsx } from "clsx";
+import { twMerge } from "tailwind-merge";
+
+export default function cn(...inputs: ClassValue[]) {
+    return twMerge(clsx(inputs));
 }

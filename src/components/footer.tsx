@@ -15,7 +15,7 @@ export default async function Footer() {
                     <WritingPhrase
                         words={
                             whoAmI?.map(
-                                (el: TWhoAmI) => `${el.name} ${el.emoji}`,
+                                (el: TWhoAmI) => `${el.name}${el.emoji}`,
                             ) ?? []
                         }
                         delay={150}
