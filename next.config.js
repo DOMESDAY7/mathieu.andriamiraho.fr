@@ -8,12 +8,12 @@ await import("./src/env.js");
 const config = {
     images: {
         remotePatterns: [
-          {
-            protocol: 'https',
-            hostname: '**.amazonaws.com',
-          },
+            {
+                protocol: "https",
+                hostname: "**.amazonaws.com",
+            },
         ],
-      },
+    },
 };
 
 export default config;

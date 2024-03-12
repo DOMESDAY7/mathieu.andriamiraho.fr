@@ -1,30 +1,30 @@
 import "@/styles/globals.css";
-import { Toaster } from "@/components/ui/toast/toaster"
+import { Toaster } from "@/components/ui/toast/toaster";
 import { Ubuntu } from "next/font/google";
 
 const ubuntu = Ubuntu({
-  weight: ["400", "500", "700"],
-  subsets: ["latin"],
-  variable: "--font-sans",
+    weight: ["400", "500", "700"],
+    subsets: ["latin"],
+    variable: "--font-sans",
 });
 
 export const metadata = {
-  title: "Mathieu Andriamiraho",
-  description: "Mathieu Andriamiraho's personal website",
-  icons: [{ rel: "icon", url: "/favicon.ico" }],
+    title: "Mathieu Andriamiraho",
+    description: "Mathieu Andriamiraho's personal website",
+    icons: [{ rel: "icon", url: "/favicon.ico" }],
 };
 
 export default function RootLayout({
-  children,
+    children,
 }: {
-  children: React.ReactNode;
+    children: React.ReactNode;
 }) {
-  return (
-    <html lang="en">
-      <body className={`font-sans ${ubuntu.variable}`}>
-        <main>{children}</main>
-        <Toaster />
-      </body>
-    </html>
-  );
+    return (
+        <html lang="en">
+            <body className={`font-sans ${ubuntu.variable}`}>
+                <main>{children}</main>
+                <Toaster />
+            </body>
+        </html>
+    );
 }

@@ -1,4 +1,4 @@
-"use server"
+"use server";
 import { Client } from "@notionhq/client";
 import { env } from "@/env";
 
@@ -7,20 +7,19 @@ import type { TimeBetween } from "@/types/timeBetween";
 import type { TWhoAmI } from "@/types/whoAmI";
 import type { Education } from "@/types/Education";
 
-
 const notion = new Client({
-    auth: env.NOTION_TOKEN
+    auth: env.NOTION_TOKEN,
 });
 
 const getExperiences = async (): Promise<Experience[] | void> => {
     try {
-
         const tokenExperiences = env.EXPERIENCE_TOKEN;
 
-        if (!tokenExperiences) throw new Error("no experience token was provided");
+        if (!tokenExperiences)
+            throw new Error("no experience token was provided");
 
         const res = await notion.databases.query({
-            database_id: tokenExperiences
+            database_id: tokenExperiences,
         });
 
         const experienceTable = res?.results?.map((el) => {
@@ -35,12 +34,14 @@ const getExperiences = async (): Promise<Experience[] | void> => {
                 description: pageProperties.description.rich_text[0].plain_text,
                 company: pageProperties.company.rich_text[0].plain_text,
                 mobileImage: pageProperties.mobileImage.files[0].file.url,
-                images: pageProperties.images.files.map((image: any) => image.file.url as string),
+                images: pageProperties.images.files.map(
+                    (image: any) => image.file.url as string,
+                ),
                 date: {
                     from: pageProperties.dates.date.start,
-                    to: pageProperties.dates.date.end
+                    to: pageProperties.dates.date.end,
                 } as TimeBetween,
-                title: pageProperties.title.title[0].plain_text
+                title: pageProperties.title.title[0].plain_text,
             };
 
             return resExperience;
@@ -48,7 +49,7 @@ const getExperiences = async (): Promise<Experience[] | void> => {
 
         return experienceTable;
     } catch (e) {
-        console.log(e)
+        console.log(e);
     }
 };
 
@@ -59,20 +60,21 @@ const getWhoAmI = async (): Promise<TWhoAmI[] | void> => {
         if (!tokenWhoAmI) throw new Error("WHO_AM_I_TOKEN was not provided");
 
         const res = await notion.databases.query({
-            database_id: tokenWhoAmI
+            database_id: tokenWhoAmI,
         });
 
         const whoAmITable = res.results.map((el) => {
-            if (!("properties" in el)) throw new Error("properties is not in el");
+            if (!("properties" in el))
+                throw new Error("properties is not in el");
 
-            const page = el as any
+            const page = el as any;
             const pageProperties = page.properties;
 
             const resIAm: TWhoAmI = {
                 emoji: pageProperties.emoji.rich_text[0].plain_text,
-                name: pageProperties.name.title[0].plain_text
-            }
-            return resIAm
+                name: pageProperties.name.title[0].plain_text,
+            };
+            return resIAm;
         });
 
         return whoAmITable;
@@ -83,20 +85,20 @@ const getWhoAmI = async (): Promise<TWhoAmI[] | void> => {
 
 const getEducationalBg = async (): Promise<Education[] | void> => {
     try {
-
         const tokenEducationalBg = env.EDUCATIONAL_BG_TOKEN;
 
-        if (!tokenEducationalBg) throw new Error("EDUCATIONAL_BG_TOKEN was not provided");
+        if (!tokenEducationalBg)
+            throw new Error("EDUCATIONAL_BG_TOKEN was not provided");
 
         const res = await notion.databases.query({
-            database_id: tokenEducationalBg
+            database_id: tokenEducationalBg,
         });
 
         const educationalBgTable = res.results.map((el) => {
+            if (!("properties" in el))
+                throw new Error("properties is not in el");
 
-            if (!("properties" in el)) throw new Error("properties is not in el");
-
-            const page = el as any
+            const page = el as any;
             const pageProperties = page.properties;
 
             const resEducationalBg: Education = {
@@ -104,23 +106,23 @@ const getEducationalBg = async (): Promise<Education[] | void> => {
                 degree: pageProperties.degree.rich_text[0].plain_text,
                 date: {
                     from: pageProperties.dates.date.start,
-                    to: pageProperties.dates.date.end
+                    to: pageProperties.dates.date.end,
                 },
                 school: pageProperties.school.rich_text[0].plain_text,
                 id: pageProperties.id.id,
                 location: pageProperties.location.rich_text[0].plain_text,
                 fieldOfStudy: pageProperties.field.title[0].plain_text,
-                images: pageProperties.images.files.map((image: any) => image.file.url as string),
+                images: pageProperties.images.files.map(
+                    (image: any) => image.file.url as string,
+                ),
+            };
+            return resEducationalBg;
+        });
 
-            }
-            return resEducationalBg
-        })
-
-        return educationalBgTable
+        return educationalBgTable;
     } catch (e) {
-        console.log(e)
+        console.log(e);
     }
-
 };
 
 export { getExperiences, getWhoAmI, getEducationalBg };

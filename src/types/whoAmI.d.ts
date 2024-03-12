@@ -1,4 +1,4 @@
 export type TWhoAmI = {
-    emoji: string,
-    name:string
-}
+    emoji: string;
+    name: string;
+};

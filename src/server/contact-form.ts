@@ -1,14 +1,14 @@
 "use server";
-import { z } from 'zod';
+import { z } from "zod";
 
 // Define the schema for validation
 const formDataSchema = z.object({
-  email: z.string().email(),
-  message: z.string().min(1, "Message cannot be empty"),
+    email: z.string().email(),
+    message: z.string().min(1, "Message cannot be empty"),
 });
 
 export async function sendMessageToDiscord(formData: FormData) {
-    console.log(formData)
+    console.log(formData);
     // Parse and validate the formData
     const parsedData = formDataSchema.safeParse({
         email: formData.get("email"),
@@ -31,11 +31,11 @@ export async function sendMessageToDiscord(formData: FormData) {
     const res = await fetch(url, {
         method: "POST",
         headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
         },
         body: JSON.stringify({
-            "content": `${email} sent a message: ${message}`
-        })
+            content: `${email} sent a message: ${message}`,
+        }),
     });
 
     console.log(res);

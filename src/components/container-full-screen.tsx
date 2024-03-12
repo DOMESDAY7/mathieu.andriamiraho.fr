@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 const ContainerFullScreen = React.forwardRef<
     HTMLDivElement,
@@ -10,6 +10,6 @@ const ContainerFullScreen = React.forwardRef<
         </section>
     );
 });
-ContainerFullScreen.displayName = "ContainerFullScreen"
+ContainerFullScreen.displayName = "ContainerFullScreen";
 
 export default ContainerFullScreen;

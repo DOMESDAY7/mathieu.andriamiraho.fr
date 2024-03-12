@@ -1,3 +1,3 @@
-export default function ID():string{
+export default function ID(): string {
     return Math.random().toString(36);
 }

@@ -1,4 +1,4 @@
-import type { TimeBetween } from './timeBetween.d';
+import type { TimeBetween } from "./timeBetween.d";
 
 export type Education = {
     id: string;
@@ -9,4 +9,4 @@ export type Education = {
     description: string;
     location: string;
     images: string[];
-}
+};

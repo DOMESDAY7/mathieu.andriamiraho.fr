@@ -1,33 +1,26 @@
-"use client"
-import cn from '@/utils/cn'
-import Image from 'next/image'
-import { useEffect, useState } from 'react'
+"use client";
+import cn from "@/utils/cn";
+import Image from "next/image";
+import { useEffect, useState } from "react";
 
 type PropsImage = {
-    fallback?: string,
-    alt: string,
-    src: string | null
-    className?: string
-    width?: number
-    height?: number,
-    fill?: boolean
-}
+    fallback?: string;
+    alt: string;
+    src: string | null;
+    className?: string;
+    width?: number;
+    height?: number;
+    fill?: boolean;
+};
 
-const IMG = ({
-    alt,
-    src,
-    className,
-    width,
-    height,
-    fill
-}: PropsImage) => {
-    const [error, setError] = useState<boolean | null>(false)
-    const fallback = "/fallback.svg"
+const IMG = ({ alt, src, className, width, height, fill }: PropsImage) => {
+    const [error, setError] = useState<boolean | null>(false);
+    const fallback = "/fallback.svg";
     useEffect(() => {
-        setError(null)
-    }, [src])
+        setError(null);
+    }, [src]);
 
-    if (src === null) src = fallback
+    if (src === null) src = fallback;
 
     return (
         <Image
@@ -39,7 +32,7 @@ const IMG = ({
             height={height}
             fill={fill}
         />
-    )
-}
+    );
+};
 
 export default IMG;
